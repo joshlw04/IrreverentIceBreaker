@@ -1,4 +1,7 @@
 import React from 'react';
+import Light from './Light.jsx';
+import Dark from './Dark.jsx';
+
 
 const Title = () => {
   return (

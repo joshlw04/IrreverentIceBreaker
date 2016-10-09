@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Title from './Title.jsx';
 
 class App extends Component {
   constructor() {
@@ -12,6 +13,7 @@ class App extends Component {
     return (
       <div id="app-body">
         <p>this is from the app component</p>
+        <Title />
       </div>
     );
   }
