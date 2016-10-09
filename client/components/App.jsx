@@ -10,7 +10,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
+      <div id="app-body">
         <p>this is from the app component</p>
       </div>
     );
