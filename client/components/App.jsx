@@ -31,9 +31,9 @@ class App extends React.Component {
              this.updateAuth();
            });
   }
-  sendQuestions({ body }) {
+  sendQuestions({ questions }) {
     request.post('/api/questions')
-           .send({ body })
+           .send({ questions })
            .then(() => {
              this.getCurrentAdminQuestions();
            });
