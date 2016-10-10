@@ -5,7 +5,7 @@ const propTypes = {
   buttonText: React.PropTypes.string,
 };
 
-class AdminForm extends React.Component {
+class Admin extends React.Component {
   constructor(props) {
     super(props);
     this.state = { email: '', password: '' };
@@ -51,4 +51,4 @@ class AdminForm extends React.Component {
 
 AdminForm.propTypes = propTypes;
 
-export default AdminForm;
+export default Admin;

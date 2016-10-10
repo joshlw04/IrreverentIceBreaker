@@ -17,7 +17,7 @@ class App extends React.Component {
   componentDidMount() {
     this.updateAuth();
     if (cookie.load('token')) {
-      this.getAllAdminQuestionss();
+      this.getAllAdminQuestions();
     }
   }
   getAllAdminQuestions() {
