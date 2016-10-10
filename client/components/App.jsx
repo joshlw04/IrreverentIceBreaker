@@ -12,7 +12,7 @@ class App extends React.Component {
     this.logIn = this.logIn.bind(this);
     this.signUp = this.signUp.bind(this);
     this.signOut = this.signOut.bind(this);
-    this.sendQuestions = this.sendQuestions.bind(this);
+    this.sendQuestion = this.sendQuestion.bind(this);
     this.getAllAdminQuestions = this.getAllAdminQuestions.bind(this);
   }
   componentDidMount() {
@@ -31,13 +31,7 @@ class App extends React.Component {
              this.updateAuth();
            });
   }
-  sendQuestions({ questions }) {
-    request.post('/api/questions')
-           .send({ questions })
-           .then(() => {
-             this.getCurrentAdminQuestions();
-           });
-  }
+
   signOut() {
     request.post('/api/signout')
            .then(() => this.updateAuth());
@@ -69,6 +63,7 @@ class App extends React.Component {
       adminDisplayElement = (
         <div>
           <button onClick={this.signOut} >Log-Out!</button>
+
         </div>
       );
     } else {
