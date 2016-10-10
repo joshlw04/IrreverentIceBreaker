@@ -12,7 +12,6 @@ class App extends React.Component {
     this.logIn = this.logIn.bind(this);
     this.signUp = this.signUp.bind(this);
     this.signOut = this.signOut.bind(this);
-    this.sendQuestion = this.sendQuestion.bind(this);
     this.getAllAdminQuestions = this.getAllAdminQuestions.bind(this);
   }
   componentDidMount() {
