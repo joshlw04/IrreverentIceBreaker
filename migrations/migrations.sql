@@ -14,5 +14,5 @@ CREATE TABLE users (
 CREATE TABLE questions (
   id SERIAL PRIMARY KEY,
   question VARCHAR(60) NOT NULL,
-  type VARHAR(60) NOT NULL
+  type VARCHAR(60) NOT NULL
 )
