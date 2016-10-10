@@ -2,8 +2,8 @@ import React from 'react';
 
 const Question = () => {
   return (
-    <div>
-      <p>this is from the Question component, Do you like dogs?</p>
+    <div id="question-body">
+      <p>Do you like dogs?</p>
     </div>
   );
 }
