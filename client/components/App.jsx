@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Button from './Button.jsx';
+import Question from './Question.jsx';
+import request from 'superagent';
 
 class App extends Component {
   constructor() {
@@ -15,46 +17,54 @@ class App extends Component {
   handleButtonClick(e) {
     const questionState = e.target.value;
     this.setState({ questionType: e.target.value });
-    console.log(questionState);
+    this.getQuestion(questionState);
   }
-  //
-  // handleDarkButtonClick() {
-  //   console.log("Button clicked");
-  //   return this.setState({ questionType: 'light' });
-  //   console.log(this.state.questionType);
-  // }
 
+  // getQuestion(questionState) {
+  //   request.get(`/api/questions/:${questionState}`
+//            .then(question) => {
+//              console.log(question);
+//             });
+  // }
 
 
   render() {
     return (
       <div id="app-body">
           <div>
-            <Button
-            name="Light"
-            value="light"
-            questionType={this.state.questionType}
-            onButtonClick={this.handleButtonClick}
-            />
-            <Button
-            name="Dark"
-            value="dark"
-            questionType={this.state.questionType}
-            onButtonClick={this.handleButtonClick}
-            />
-            <Button
-            name="Political"
-            value="political"
-            questionType={this.state.questionType}
-            onButtonClick={this.handleButtonClick}
-            />
-            <Button
-            name="NSFW"
-            value="nsfw"
-            questionType={this.state.questionType}
-            onButtonClick={this.handleButtonClick}
-            />
-
+              <Button
+              name="Light"
+              value="light"
+              questionType={this.state.questionType}
+              onButtonClick={this.handleButtonClick}
+              />
+              {this.state.questionType === 'light' ?
+                <Question
+                  questionType={this.state.questionType}
+                /> : <div></div>}
+              <Button
+              name="Dark"
+              value="dark"
+              questionType={this.state.questionType}
+              onButtonClick={this.handleButtonClick}
+              />
+            {/* <li>
+              <Button
+              to="/political"
+              name="Political"
+              value="political"
+              questionType={this.state.questionType}
+              onButtonClick={this.handleButtonClick}
+              />
+            </li>
+            <li>
+              <Button
+              name="NSFW"
+              value="nsfw"
+              questionType={this.state.questionType}
+              onButtonClick={this.handleButtonClick}
+              />
+            </li> */}
         </div>
     </div>
     );
