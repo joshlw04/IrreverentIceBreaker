@@ -1,7 +1,9 @@
-DROP DATABASE IF EXISTS question_question;
-CREATE DATABASE question_question;
+--update your .env file for database URL name
 
-\c question_question
+DROP DATABASE IF EXISTS irreverent_ice_breaker;
+CREATE DATABASE irreverent_ice_breaker;
+
+\c irreverent_ice_breaker
 
 CREATE TABLE admins (
   id SERIAL PRIMARY KEY,
@@ -11,6 +13,6 @@ CREATE TABLE admins (
 
 CREATE TABLE questions (
   id SERIAL PRIMARY KEY,
-  body VARCHAR NOT NULL,
-  user_id INTEGER REFERENCES users (id)
+  question VARCHAR(60) NOT NULL,
+  type VARCHAR(60) NOT NULL
 );
