@@ -2,8 +2,8 @@ const AdminDAO = require('../services/AdminDAO');
 
 class AdminController {
   static getAll(req, res) {
-    AdminDAO.all().then((Admins) => {
-      res.status(200).json(Admins);
+    AdminDAO.all().then((Admin) => {
+      res.status(200).json(Admin);
     });
   }
   static getOne(req, res) {
