@@ -1,7 +1,7 @@
 import React from 'react';
 import request from 'superagent';
 import cookie from 'react-cookie';
-import adminForm from './admins/adminForm.jsx';
+import AdminForm from './admin/adminForm.jsx';
 
 const propTypes = {};
 
@@ -49,11 +49,12 @@ class App extends React.Component {
          });
   }
   signUp(adminDetails) {
+    console.log(adminDetails);
     request.post('/api/signup')
           .send(adminDetails)
           .then(() => {
             this.updateAuth();
-            this.getAllAdminQuestions();
+            // this.getAllAdminQuestions();
           });
   }
   render() {
@@ -62,14 +63,13 @@ class App extends React.Component {
       adminDisplayElement = (
         <div>
           <button onClick={this.signOut} >Log-Out!</button>
-
         </div>
       );
     } else {
       adminDisplayElement = (
         <div>
-          <adminForm handleSubmit={this.signUp} buttonText="Sign-Up" />
-          <adminForm handleSubmit={this.logIn} buttonText="Log-In" />
+          <AdminForm handleSubmit={this.signUp} buttonText="Sign-Up" />
+          <AdminForm handleSubmit={this.logIn} buttonText="Log-In" />
         </div>
       );
     }

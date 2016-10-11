@@ -1,5 +1,5 @@
 import React from 'react';
-
+console.log('from admin form');
 const propTypes = {
   handleSubmit: React.PropTypes.func,
   buttonText: React.PropTypes.string,
@@ -12,6 +12,7 @@ class AdminForm extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleInputChange(e) {
     const target = e.target;
     const name = target.getAttribute('name');
