@@ -6,6 +6,10 @@ class QuestionDAO {
   static all() {
     return db.map(sql.all, [], (row) => new Question(row));
   }
+  static oneQuestionByType(type) {
+    return db.one(sql.find, [type])
+             .then((response) => new Question(response));
+  }
   static delete(id) {
     return db.none(sql.delete, [id]);
   }

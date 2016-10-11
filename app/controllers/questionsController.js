@@ -6,8 +6,12 @@ class QuestionsController {
       res.status(200).json(questions);
     });
   }
-  // static getRandomQuestion(req, res) {
-  // }
+  static getRandomQuestion(req, res) {
+    QuestionDAO.oneQuestionByType(req.params.type)
+               .then((question) => {
+                res.status(200).json(question);
+               });
+  }
   static create(req, res) {
     const questionData = {
       question: req.body.question,
