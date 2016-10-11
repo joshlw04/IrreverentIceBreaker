@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 const propTypes = {
-  getQuestion: React.PropTypes.func,
+  currentQuestion: React.PropTypes.string,
+}
+class Question extends Component {
+  constructor() {
+    super();
+  }
+  render() {
+    return (
+      <div id="question-body">
+        <p>{this.props.currentQuestion}</p>
+      </div>
+    );
+  }
 }
 
-const Question = () => {
-  return (
-    <div id="question-body">
-      <p>{this.props.getQuestion}</p>
-    </div>
-  );
-}
-
-Question.proptypes = propTypes;
+Question.propTypes = propTypes;
 
 export default Question;

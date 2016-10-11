@@ -8,9 +8,8 @@ class App extends Component {
     super();
     this.state = {
       questionType: '',
-        // keywords: light, dark, sexy, political, etc
+      question: '',
     }
-    // this.handleDarkQuestionClick = this.handleDarkQuestionClick.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
   }
 
@@ -20,13 +19,19 @@ class App extends Component {
     this.getQuestion(questionState);
   }
 
-  getQuestion({this.state.questionState}) {
+  getQuestion(questionState) {
+    // const questionDiv = document.querySelector('#question');
+    // questionDiv.innerHTML = '';
+    // console.log(questionDiv);
     request.get(`/api/questions/${questionState}`)
            .then((question) => {
-             return question.body.question;
-            });
-  }
+             const displayQuestion = question.body.question;
+             console.log(displayQuestion);
+            //  questionDiv.innerHTML = displayQuestion;
+             this.setState({ question: displayQuestion });
 
+           });
+  }
 
   render() {
     return (
@@ -38,16 +43,24 @@ class App extends Component {
               questionType={this.state.questionType}
               onButtonClick={this.handleButtonClick}
               />
+              {/* <div id="question-test"> */}
               {this.state.questionType === 'light' ?
                 <Question
-                getQuestion={this.getQuestion}
+                questionType={this.state.questionType}
+                currentQuestion={this.state.question}
                 /> : <div></div>}
+              {/* </div> */}
               <Button
               name="Dark"
               value="dark"
               questionType={this.state.questionType}
               onButtonClick={this.handleButtonClick}
               />
+              {this.state.questionType === 'dark' ?
+                <Question
+                id="question"
+                currentQuestion={this.state.question}
+                /> : <div></div>}
               {/* <Button
               to="/political"
               name="Political"
