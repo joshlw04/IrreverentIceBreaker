@@ -81,19 +81,3 @@ class App extends Component {
 }
 
 export default App;
-
-/*
-
-Methods to add:
-
-getLightQuestion() {
-  request.get(`api/questions/light`)
-         .then((questionResponse) => {
-
-       })
-
-})
-}
-
-
-*/

@@ -23,14 +23,9 @@ app.use(session({
 
 app.use(morgan('dev'));
 
-// app.use('/api');
-// app.use('/api');
-app.use('/api/admins', adminRouter);
+app.use('/api', authentication);
+app.use('/api', authRouter);
+app.use('/api/admin', adminRouter);
 app.use('/api/questions', questionsRouter);
 
 module.exports = app;
-
-/*
-authentication
-authRouter
-*/
