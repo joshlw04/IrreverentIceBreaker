@@ -7,7 +7,7 @@ function sql(file) {
 }
 
 const sqlProvider = {
-  users: {
+  admins: {
     all: sql('./sql/user/all.sql'),
     find: sql('./sql/user/find.sql'),
     create: sql('.sql/user/create.sql'),

@@ -1,7 +1,7 @@
 TRUNCATE TABLE USERS;
 TRUNCATE TABLE QUESTIONS;
 
-INSERT INTO users (email, password) VALUES ('liz@test.com', 'password');
+INSERT INTO admins (email, password) VALUES ('liz@test.com', 'password');
 
 INSERT INTO questions (question, type) VALUES ('What did you have for dinner?', 'hard');
 INSERT INTO questions (question, type) VALUES ('Who are you voting for?', 'hard');

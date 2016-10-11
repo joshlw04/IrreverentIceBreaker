@@ -5,7 +5,7 @@ CREATE DATABASE irreverent_ice_breaker;
 
 \c irreverent_ice_breaker
 
-CREATE TABLE users (
+CREATE TABLE admins (
   id SERIAL PRIMARY KEY,
   email VARCHAR NOT NULL,
   password VARCHAR NOT NULL
