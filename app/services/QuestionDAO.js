@@ -17,3 +17,5 @@ class QuestionDAO {
     return db.none(sql.update, [question, type, id]);
   }
 }
+
+module.exports = QuestionDAO;

@@ -1,4 +1,4 @@
-const QuestionsDAO = require('../services/QuestionDAO');
+const QuestionDAO = require('../services/QuestionDAO');
 
 class QuestionsController {
   static getAllQuestions(req, res) {
@@ -16,12 +16,13 @@ class QuestionsController {
     QuestionDAO.create(questionData)
                .then((question) => res.status(200).json(question));
   }
-  static put(req, res) {
+  static update(req, res) {
     const updateData = {
+      id: req.params.id,
       question: req.body.question,
       type: req.body.type,
-      id: req.body.id,
     };
+    console.log(updateData);
     QuestionDAO.update(updateData)
                .then((response) => res.status(200).json(response));
   }

@@ -23,8 +23,8 @@ app.use(session({
 
 app.use(morgan('dev'));
 
-app.use('/api', authentication);
-app.use('/api', authRouter);
+// app.use('/api', authentication);
+// app.use('/api', authRouter);
 app.use('/api/users', userRouter);
 app.use('/api/questions', questionsRouter);
 
