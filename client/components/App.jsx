@@ -20,12 +20,12 @@ class App extends Component {
     this.getQuestion(questionState);
   }
 
-  // getQuestion(questionState) {
-  //   request.get(`/api/questions/:${questionState}`
-//            .then(question) => {
-//              console.log(question);
-//             });
-  // }
+  getQuestion({this.state.questionState}) {
+    request.get(`/api/questions/${questionState}`)
+           .then((question) => {
+             return question.body.question;
+            });
+  }
 
 
   render() {
@@ -40,7 +40,7 @@ class App extends Component {
               />
               {this.state.questionType === 'light' ?
                 <Question
-                  questionType={this.state.questionType}
+                getQuestion={this.getQuestion}
                 /> : <div></div>}
               <Button
               name="Dark"
@@ -48,23 +48,19 @@ class App extends Component {
               questionType={this.state.questionType}
               onButtonClick={this.handleButtonClick}
               />
-            {/* <li>
-              <Button
+              {/* <Button
               to="/political"
               name="Political"
               value="political"
               questionType={this.state.questionType}
               onButtonClick={this.handleButtonClick}
               />
-            </li>
-            <li>
               <Button
               name="NSFW"
               value="nsfw"
               questionType={this.state.questionType}
               onButtonClick={this.handleButtonClick}
-              />
-            </li> */}
+              /> */}
         </div>
     </div>
     );

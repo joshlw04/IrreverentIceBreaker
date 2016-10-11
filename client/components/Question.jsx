@@ -1,11 +1,17 @@
 import React from 'react';
 
+const propTypes = {
+  getQuestion: React.PropTypes.func,
+}
+
 const Question = () => {
   return (
     <div id="question-body">
-      <p>Do you like dogs?</p>
+      <p>{this.props.getQuestion}</p>
     </div>
   );
 }
+
+Question.proptypes = propTypes;
 
 export default Question;
