@@ -25,7 +25,7 @@ app.use(morgan('dev'));
 
 app.use('/api', authentication);
 app.use('/api', authRouter);
-app.use('/api/admins', userRouter);
+app.use('/api/admins', adminRouter);
 app.use('/api/questions', questionsRouter);
 
 module.exports = app;
