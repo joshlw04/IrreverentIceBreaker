@@ -2,10 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
-// const userRouter = require('./routes/userRouter');
-// const chirpRouter = require('./routes/chirpRouter');
-// const authRouter = require('./routes/authRouter');
-// const authentication = require('./middleware/authentication');
+const adminRouter = require('./routes/adminRouter');
+const questionsRouter = require('./routes/questionsRouter');
+const authRouter = require('./routes/authRouter');
+const authentication = require('./middleware/authentication');
 const session = require('express-session');
 
 const app = express();
@@ -23,9 +23,9 @@ app.use(session({
 
 app.use(morgan('dev'));
 
-// app.use('/api', authentication);
-// app.use('/api', authRouter);
-// app.use('/api/users', userRouter);
-// app.use('/api/chirps', chirpRouter);
+app.use('/api', authentication);
+app.use('/api', authRouter);
+app.use('/api/admins', adminRouter);
+app.use('/api/questions', questionsRouter);
 
 module.exports = app;
