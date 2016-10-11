@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 const propTypes = {
   currentQuestion: React.PropTypes.string,
+  questionType: React.PropTypes.string,
+
 }
 class Question extends Component {
   constructor() {
@@ -9,7 +11,7 @@ class Question extends Component {
   }
   render() {
     return (
-      <div id="question-body">
+      <div id="question-{this.props.questionType}">
         <p>{this.props.currentQuestion}</p>
       </div>
     );
@@ -19,3 +21,5 @@ class Question extends Component {
 Question.propTypes = propTypes;
 
 export default Question;
+
+// TODO: look into how to pass props into an id for a jsx element

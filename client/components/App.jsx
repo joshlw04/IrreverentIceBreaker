@@ -58,7 +58,7 @@ class App extends Component {
               />
               {this.state.questionType === 'dark' ?
                 <Question
-                id="question"
+                questionType={this.state.questionType}
                 currentQuestion={this.state.question}
                 /> : <div></div>}
               {/* <Button

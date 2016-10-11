@@ -18,3 +18,13 @@ body {
 .button {
   padding: 2em;
 }
+
+#question-light {
+  background-color: white;
+  color: black;
+}
+
+#question-dark {
+  background-color: black;
+  color: white;
+}
