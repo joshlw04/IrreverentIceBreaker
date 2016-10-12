@@ -22,10 +22,20 @@ app.use(session({
 }));
 
 app.use(morgan('dev'));
+
+// app.use('/api');
+// app.use('/api');
+app.use('/api/admins', adminRouter);
 //changed api to auth, also in auth.jsx
 app.use('/auth', authentication);
 app.use('/auth', authRouter);
 app.use('/api/admin', adminRouter);
+
 app.use('/api/questions', questionsRouter);
 
 module.exports = app;
+
+/*
+authentication
+authRouter
+*/

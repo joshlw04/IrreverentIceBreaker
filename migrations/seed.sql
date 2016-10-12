@@ -1,4 +1,4 @@
-TRUNCATE TABLE USERS;
+TRUNCATE TABLE AMDINS;
 TRUNCATE TABLE QUESTIONS;
 
 INSERT INTO admins (email, password) VALUES ('liz@test.com', 'password');

@@ -3,7 +3,6 @@ import TypeButton from './TypeButton.jsx';
 import Question from './Question.jsx';
 import NewQuestionButton from './NewQuestionButton.jsx';
 import request from 'superagent';
-console.log('from app');
 
 class App extends Component {
   constructor() {
