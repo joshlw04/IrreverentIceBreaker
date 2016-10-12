@@ -1,86 +1,85 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Button from './Button.jsx';
+import Question from './Question.jsx';
 import request from 'superagent';
-import cookie from 'react-cookie';
-import AdminForm from './admin/adminForm.jsx';
+console.log('from app');
 
-const propTypes = {};
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { questions: [] };
-    this.logIn = this.logIn.bind(this);
-    this.signUp = this.signUp.bind(this);
-    this.signOut = this.signOut.bind(this);
-    this.getAllAdminQuestions = this.getAllAdminQuestions.bind(this);
-  }
-  componentDidMount() {
-    this.updateAuth();
-    if (cookie.load('token')) {
-      this.getAllAdminQuestions();
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      questionType: '',
+      question: '',
     }
+    this.handleButtonClick = this.handleButtonClick.bind(this);
   }
-  getAllAdminQuestions() {
-    request.get('/api/questions')
-           .then((response) => {
-             const questions = response.body;
-             this.setState({ questions });
-           })
-           .catch(() => {
-             this.updateAuth();
+
+  handleButtonClick(e) {
+    const questionState = e.target.value;
+    this.setState({ questionType: e.target.value });
+    this.getQuestion(questionState);
+  }
+
+  getQuestion(questionState) {
+    // const questionDiv = document.querySelector('#question');
+    // questionDiv.innerHTML = '';
+    // console.log(questionDiv);
+    request.get(`/api/questions/${questionState}`)
+           .then((question) => {
+             const displayQuestion = question.body.question;
+             console.log(displayQuestion);
+            //  questionDiv.innerHTML = displayQuestion;
+             this.setState({ question: displayQuestion });
+
            });
   }
 
-  signOut() {
-    request.post('/api/signout')
-           .then(() => this.updateAuth());
-  }
-  updateAuth() {
-    this.setState({
-      token: cookie.load('token'),
-    });
-  }
-  logIn(adminDetails) {
-    request.post('/api/login')
-          .send(adminDetails)
-         .then(() => {
-           this.updateAuth();
-           this.getAllAdminQuestions();
-         });
-  }
-  signUp(adminDetails) {
-    console.log(adminDetails);
-    request.post('/api/signup')
-          .send(adminDetails)
-          .then(() => {
-            this.updateAuth();
-            // this.getAllAdminQuestions();
-          });
-  }
   render() {
-    let adminDisplayElement;
-    if (this.state.token) {
-      adminDisplayElement = (
-        <div>
-          <button onClick={this.signOut} >Log-Out!</button>
-        </div>
-      );
-    } else {
-      adminDisplayElement = (
-        <div>
-          <AdminForm handleSubmit={this.signUp} buttonText="Sign-Up" />
-          <AdminForm handleSubmit={this.logIn} buttonText="Log-In" />
-        </div>
-      );
-    }
     return (
-      <div>
-        {adminDisplayElement}
-      </div>
+      <div id="app-body">
+        <Button
+        name="Light"
+        value="light"
+        questionType={this.state.questionType}
+        onButtonClick={this.handleButtonClick}
+        />
+        {this.state.questionType === 'light' ?
+          <Question
+          questionType={this.state.questionType}
+          currentQuestion={this.state.question}
+          /> : <div></div>}
+        <Button
+        name="Dark"
+        value="dark"
+        questionType={this.state.questionType}
+        onButtonClick={this.handleButtonClick}
+        />
+        {this.state.questionType === 'dark' ?
+          <Question
+          questionType={this.state.questionType}
+          currentQuestion={this.state.question}
+          /> : <div></div>}
+        {/* <Button
+        to="/political"
+        name="Political"
+        value="political"
+        questionType={this.state.questionType}
+        onButtonClick={this.handleButtonClick}
+        />*/}
+        {/* <Button
+        name="NSFW"
+        value="nsfw"
+        questionType={this.state.questionType}
+        onButtonClick={this.handleButtonClick}
+        />
+        {this.state.questionType === 'nsfw' ?
+          <Question
+          questionType={this.state.questionType}
+          currentQuestion={this.state.question}
+          /> : <div></div>} */}
+    </div>
     );
   }
 }
-
-App.propTypes = propTypes;
 
 export default App;

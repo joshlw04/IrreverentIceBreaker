@@ -1,5 +1,4 @@
 import React from 'react';
-console.log('from admin form');
 const propTypes = {
   handleSubmit: React.PropTypes.func,
   buttonText: React.PropTypes.string,
