@@ -1,5 +1,5 @@
 const db = require('../config/db');
-const sql = require('../config/sqlProvider').users;
+const sql = require('../config/sqlProvider').admins;
 const Admin = require('../models/Admin');
 
 class AdminDAO {

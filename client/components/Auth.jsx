@@ -1,32 +1,7 @@
-// import React from 'react';
-// import request from 'superagent';
-// import cookie from 'react-cookie';
-// import AdminForm from './admin/adminForm.jsx';
-// console.log('from auth form');
-//
-// class Auth extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = { questions: [] };
-//     this.logIn = this.logIn.bind(this);
-//     this.signUp = this.signUp.bind(this);
-//     this.signOut = this.signOut.bind(this);
-//     this.getAllAdminQuestions = this.getAllAdminQuestions.bind(this);
-//   }
-//
-//   render() {
-//     return (
-//       <div>poop</div>
-//     );
-//   }
-// }
-//   export default Auth;
-
-
-
 import React from 'react';
 import request from 'superagent';
 import cookie from 'react-cookie';
+import { withRouter } from 'react-router';
 import AdminForm from './admin/adminForm.jsx';
 console.log('from auth form');
 
