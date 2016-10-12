@@ -8,7 +8,7 @@ class App extends Component {
     super();
     this.state = {
       questionType: '',
-      // questionState: '',
+      question: '',
     }
     this.handleButtonClick = this.handleButtonClick.bind(this);
   }
@@ -19,36 +19,63 @@ class App extends Component {
     this.getQuestion(questionState);
   }
 
-   getQuestion({questionType}) {
-    request.get(`/api/questions/${questionType}`)
+  getQuestion(questionState) {
+    // const questionDiv = document.querySelector('#question');
+    // questionDiv.innerHTML = '';
+    // console.log(questionDiv);
+    request.get(`/api/questions/${questionState}`)
            .then((question) => {
-             return question.body.question;
-            });
-            console.log(question.body.question)
-  }
+             const displayQuestion = question.body.question;
+             console.log(displayQuestion);
+            //  questionDiv.innerHTML = displayQuestion;
+             this.setState({ question: displayQuestion });
 
+           });
+  }
 
   render() {
     return (
       <div id="app-body">
-          <div>
-              <Button
-              name="Light"
-              value="light"
-              questionType={this.state.questionType}
-              onButtonClick={this.handleButtonClick}
-              />
-              {this.state.questionType === 'light' ?
-                <Question
-                getQuestion={this.getQuestion}
-                /> : <div></div>}
-              <Button
-              name="Dark"
-              value="dark"
-              questionType={this.state.questionType}
-              onButtonClick={this.handleButtonClick}
-              />
-        </div>
+        <Button
+        name="Light"
+        value="light"
+        questionType={this.state.questionType}
+        onButtonClick={this.handleButtonClick}
+        />
+        {this.state.questionType === 'light' ?
+          <Question
+          questionType={this.state.questionType}
+          currentQuestion={this.state.question}
+          /> : <div></div>}
+        <Button
+        name="Dark"
+        value="dark"
+        questionType={this.state.questionType}
+        onButtonClick={this.handleButtonClick}
+        />
+        {this.state.questionType === 'dark' ?
+          <Question
+          questionType={this.state.questionType}
+          currentQuestion={this.state.question}
+          /> : <div></div>}
+        {/* <Button
+        to="/political"
+        name="Political"
+        value="political"
+        questionType={this.state.questionType}
+        onButtonClick={this.handleButtonClick}
+        />*/}
+        {/* <Button
+        name="NSFW"
+        value="nsfw"
+        questionType={this.state.questionType}
+        onButtonClick={this.handleButtonClick}
+        />
+        {this.state.questionType === 'nsfw' ?
+          <Question
+          questionType={this.state.questionType}
+          currentQuestion={this.state.question}
+          /> : <div></div>} */}
     </div>
     );
   }

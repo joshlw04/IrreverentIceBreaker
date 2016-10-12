@@ -7,6 +7,10 @@ module.exports = {
     path: path.join(__dirname, 'dist', 'js'),
     filename: 'bundle.js',
   },
+  devServer: {
+      historyApiFallback: true
+  },
+
   module: {
     loaders: [
       {

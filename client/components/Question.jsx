@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 const propTypes = {
-  getQuestion: React.PropTypes.func,
-}
-  // console.log(this.props),
+  currentQuestion: React.PropTypes.string,
+  questionType: React.PropTypes.string,
 
-const Question = () => {
-  return (
-    <div id="question-body">
-      <p></p>
-      {/* <p>{this.props.getQuestion}</p> */}
-    </div>
-  );
+}
+class Question extends Component {
+  constructor() {
+    super();
+  }
+  render() {
+    return (
+      <div id="question-{this.props.questionType}">
+        <p>{this.props.currentQuestion}</p>
+      </div>
+    );
+  }
 }
 
-Question.proptypes = propTypes;
+Question.propTypes = propTypes;
 
 export default Question;
+
+// TODO: look into how to pass props into an id for a jsx element
+
