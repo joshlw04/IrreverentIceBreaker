@@ -4,7 +4,7 @@ const propTypes = {
   id: React.PropTypes.number,
   question: React.PropTypes.string,
   type: React.PropTypes.string,
-}
+};
 
 class CMSQuestion extends Component {
   constructor(props) {
