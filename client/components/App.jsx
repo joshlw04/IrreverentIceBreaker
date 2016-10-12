@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Button from './Button.jsx';
 import Question from './Question.jsx';
 import request from 'superagent';
-console.log('from app');
 
 class App extends Component {
   constructor() {

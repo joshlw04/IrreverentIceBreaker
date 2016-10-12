@@ -20,7 +20,7 @@ class Title extends Component {
         <h1>This is the home page</h1>
         <p>something here to give instructions</p>
       } else if (this.props.questionType = 'light') {
-        
+
       }
     }
     </div>
