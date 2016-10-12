@@ -17,7 +17,7 @@ class Button extends Component {
         <button
         value={this.props.value} // assigning HTML button properties thru props. it works! haha
         name={this.props.name}
-        onClick={this.props.onTypeButtonClick}>{this.props.name}</button>
+        onClick={this.props.onTypeButtonClick}>{this.props.name + " mode"}</button>
       </div>
     );
   }

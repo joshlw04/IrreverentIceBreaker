@@ -47,7 +47,6 @@ class App extends Component {
   render() {
     return (
       <div id="app-body">
-      {this.state.questionType === '' ?
         <TypeButton
         name="Light"
         value="light"
@@ -60,10 +59,6 @@ class App extends Component {
         questionType={this.state.questionType}
         onTypeButtonClick={this.handleTypeButtonClick}
         />
-        <p>
-          Choose a question type from above!
-        </p>
-        : <div></div> }
         {this.state.questionType === 'dark' ?
           <Question
           questionType={this.state.questionType}
