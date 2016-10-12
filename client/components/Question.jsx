@@ -11,7 +11,7 @@ class Question extends Component {
   }
   render() {
     return (
-      <div id="question-{this.props.questionType}">
+      <div id="question">
         <p>{this.props.currentQuestion}</p>
       </div>
     );

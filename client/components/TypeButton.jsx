@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const propTypes = {
   questionType: React.PropTypes.string,
-  onButtonClick: React.PropTypes.func,
+  onTypeButtonClick: React.PropTypes.func,
   name: React.PropTypes.string,
   value: React.PropTypes.string
   // handleLightQuestionClick: React.PropTypes.func
@@ -13,11 +13,11 @@ class Button extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="button">
         <button
-        className="button"
         value={this.props.value} // assigning HTML button properties thru props. it works! haha
-        onClick={this.props.onButtonClick}>{this.props.name}</button>
+        name={this.props.name}
+        onClick={this.props.onTypeButtonClick}>{this.props.name}</button>
       </div>
     );
   }

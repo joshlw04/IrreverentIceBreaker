@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Button from './Button.jsx';
+import TypeButton from './TypeButton.jsx';
 import Question from './Question.jsx';
+import NewQuestionButton from './NewQuestionButton.jsx';
 import request from 'superagent';
 console.log('from app');
 
@@ -11,75 +12,102 @@ class App extends Component {
       questionType: '',
       question: '',
     }
-    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleTypeButtonClick = this.handleTypeButtonClick.bind(this);
+    this.handleNewQuestionClick = this.handleNewQuestionClick.bind(this);
+
   }
 
-  handleButtonClick(e) {
+  handleTypeButtonClick(e) {
     const questionState = e.target.value;
     this.setState({ questionType: e.target.value });
     this.getQuestion(questionState);
   }
 
+  handleNewQuestionClick () {
+    const questionState = this.state.questionType;
+    // console.log(questionState);
+    request.get(`/api/questions/${questionState}`)
+           .then((question) => {
+             const displayQuestion = question.body.question;
+            //  console.log(question.body.question);
+             this.setState({ question: displayQuestion });
+    //          return <Question currentQuestion={this.state.question} />;
+             });
+  }
+
   getQuestion(questionState) {
-    // const questionDiv = document.querySelector('#question');
-    // questionDiv.innerHTML = '';
-    // console.log(questionDiv);
     request.get(`/api/questions/${questionState}`)
            .then((question) => {
              const displayQuestion = question.body.question;
              console.log(displayQuestion);
             //  questionDiv.innerHTML = displayQuestion;
              this.setState({ question: displayQuestion });
-
            });
   }
 
   render() {
     return (
       <div id="app-body">
-        <Button
+      {this.state.questionType === '' ?
+        <TypeButton
         name="Light"
         value="light"
         questionType={this.state.questionType}
-        onButtonClick={this.handleButtonClick}
+        onTypeButtonClick={this.handleTypeButtonClick}
         />
-        {this.state.questionType === 'light' ?
-          <Question
-          questionType={this.state.questionType}
-          currentQuestion={this.state.question}
-          /> : <div></div>}
-        <Button
+        <TypeButton
         name="Dark"
         value="dark"
         questionType={this.state.questionType}
-        onButtonClick={this.handleButtonClick}
+        onTypeButtonClick={this.handleTypeButtonClick}
         />
+        <p>
+          Choose a question type from above!
+        </p>
+        : <div></div> }
         {this.state.questionType === 'dark' ?
           <Question
           questionType={this.state.questionType}
           currentQuestion={this.state.question}
           /> : <div></div>}
-        {/* <Button
-        to="/political"
-        name="Political"
-        value="political"
-        questionType={this.state.questionType}
-        onButtonClick={this.handleButtonClick}
-        />*/}
-        {/* <Button
-        name="NSFW"
-        value="nsfw"
-        questionType={this.state.questionType}
-        onButtonClick={this.handleButtonClick}
-        />
-        {this.state.questionType === 'nsfw' ?
+        {this.state.questionType === 'light' ?
           <Question
           questionType={this.state.questionType}
           currentQuestion={this.state.question}
-          /> : <div></div>} */}
+          /> : <div></div>}
+
+      {this.state.questionType === '' ? <div></div> :
+        <NewQuestionButton
+        name={this.state.questionType}
+        onClick={this.handleNewQuestionClick}
+        />
+      }
     </div>
     );
   }
 }
 
 export default App;
+
+/*
+
+{/* <Button
+to="/political"
+name="Political"
+value="political"
+questionType={this.state.questionType}
+onButtonClick={this.handleButtonClick}
+/>
+ <Button
+name="NSFW"
+value="nsfw"
+questionType={this.state.questionType}
+onButtonClick={this.handleButtonClick}
+/>
+{this.state.questionType === 'nsfw' ?
+  <Question
+  questionType={this.state.questionType}
+  currentQuestion={this.state.question}
+  /> : <div></div>}
+
+*/

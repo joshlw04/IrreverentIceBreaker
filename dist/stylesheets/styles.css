@@ -13,17 +13,18 @@ body {
   border: 1px solid black;
 }
 
-.button {
+button {
+  border-radius: 50%;
   padding: 2em;
+  background-color: white;
+}
+div.button {
   display: inline-block;
 }
 
-#question-light {
+#question p {
   background-color: white;
   color: black;
-}
-
-#question-dark {
-  background-color: black;
-  color: white;
+  width: 50%;
+  margin: 3em auto;
 }
