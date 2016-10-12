@@ -6,17 +6,16 @@ body {
 #app-body {
   width: 100%;
   border: 3px solid black;
+  display: inline-block;
 }
 
-#title-body {
-  border: 1px soild black;
-}
 #question-body {
   border: 1px solid black;
 }
 
 .button {
   padding: 2em;
+  display: inline-block;
 }
 
 #question-light {

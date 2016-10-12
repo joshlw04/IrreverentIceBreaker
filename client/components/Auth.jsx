@@ -1,7 +1,34 @@
+// import React from 'react';
+// import request from 'superagent';
+// import cookie from 'react-cookie';
+// import AdminForm from './admin/adminForm.jsx';
+// console.log('from auth form');
+//
+// class Auth extends React.Component {
+//   constructor() {
+//     super();
+//     this.state = { questions: [] };
+//     this.logIn = this.logIn.bind(this);
+//     this.signUp = this.signUp.bind(this);
+//     this.signOut = this.signOut.bind(this);
+//     this.getAllAdminQuestions = this.getAllAdminQuestions.bind(this);
+//   }
+//
+//   render() {
+//     return (
+//       <div>poop</div>
+//     );
+//   }
+// }
+//   export default Auth;
+
+
+
 import React from 'react';
 import request from 'superagent';
 import cookie from 'react-cookie';
 import AdminForm from './admin/adminForm.jsx';
+console.log('from auth form');
 
 const propTypes = {};
 
@@ -20,6 +47,7 @@ class Auth extends React.Component {
       this.getAllAdminQuestions();
     }
   }
+
   getAllAdminQuestions() {
     request.get('/api/questions')
            .then((response) => {
@@ -30,9 +58,9 @@ class Auth extends React.Component {
              this.updateAuth();
            });
   }
-
+// changed api to auth, also in app.jsx
   signOut() {
-    request.post('/api/signout')
+    request.post('/auth/signout')
            .then(() => this.updateAuth());
   }
   updateAuth() {
@@ -41,7 +69,7 @@ class Auth extends React.Component {
     });
   }
   logIn(adminDetails) {
-    request.post('/api/login')
+    request.post('/auth/login')
           .send(adminDetails)
          .then(() => {
            this.updateAuth();
@@ -50,7 +78,7 @@ class Auth extends React.Component {
   }
   signUp(adminDetails) {
     console.log(adminDetails);
-    request.post('/api/signup')
+    request.post('/auth/signup')
           .send(adminDetails)
           .then(() => {
             this.updateAuth();
@@ -62,12 +90,14 @@ class Auth extends React.Component {
     if (this.state.token) {
       adminDisplayElement = (
         <div>
+        <p>testss</p>
           <button onClick={this.signOut} >Log-Out!</button>
         </div>
       );
     } else {
       adminDisplayElement = (
         <div>
+        <p>testss</p>
           <AdminForm handleSubmit={this.signUp} buttonText="Sign-Up" />
           <AdminForm handleSubmit={this.logIn} buttonText="Log-In" />
         </div>

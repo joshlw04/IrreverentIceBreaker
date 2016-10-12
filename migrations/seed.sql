@@ -21,3 +21,10 @@ INSERT INTO questions (question, type) VALUES ('(dark) What do you love to eat m
 INSERT INTO questions (question, type) VALUES ('(dark) Have you ever paid for sex?', 'dark');
 INSERT INTO questions (question, type) VALUES ('(dark) Would you kill someone for $1,000?', 'dark');
 INSERT INTO questions (question, type) VALUES ('(dark) Who would you want to be stranded with?', 'dark');
+
+INSERT INTO questions (question, type) VALUES ('(nsfw) How many sexual partners have you had?', 'nsfw');
+INSERT INTO questions (question, type) VALUES ('(nsfw) When was the last time you did a body shot?', 'nsfw');
+INSERT INTO questions (question, type) VALUES ('(nsfw) What is your favorite sexual position?', 'nsfw');
+INSERT INTO questions (question, type) VALUES ('(nsfw) What is the longest time you have gone without sex?', 'nsfw');
+INSERT INTO questions (question, type) VALUES ('(nsfw) Have you ever had a sexual encounter outside?', 'nsfw');
+INSERT INTO questions (question, type) VALUES ('(nsfw) Have you ever been caught having sex?', 'nsfw');

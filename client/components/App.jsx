@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from './Button.jsx';
 import Question from './Question.jsx';
 import request from 'superagent';
+console.log('from app');
 
 class App extends Component {
   constructor() {
@@ -36,45 +37,46 @@ class App extends Component {
   render() {
     return (
       <div id="app-body">
-          <div>
-              <Button
-              name="Light"
-              value="light"
-              questionType={this.state.questionType}
-              onButtonClick={this.handleButtonClick}
-              />
-              {/* <div id="question-test"> */}
-              {this.state.questionType === 'light' ?
-                <Question
-                questionType={this.state.questionType}
-                currentQuestion={this.state.question}
-                /> : <div></div>}
-              {/* </div> */}
-              <Button
-              name="Dark"
-              value="dark"
-              questionType={this.state.questionType}
-              onButtonClick={this.handleButtonClick}
-              />
-              {this.state.questionType === 'dark' ?
-                <Question
-                questionType={this.state.questionType}
-                currentQuestion={this.state.question}
-                /> : <div></div>}
-              {/* <Button
-              to="/political"
-              name="Political"
-              value="political"
-              questionType={this.state.questionType}
-              onButtonClick={this.handleButtonClick}
-              />
-              <Button
-              name="NSFW"
-              value="nsfw"
-              questionType={this.state.questionType}
-              onButtonClick={this.handleButtonClick}
-              /> */}
-        </div>
+        <Button
+        name="Light"
+        value="light"
+        questionType={this.state.questionType}
+        onButtonClick={this.handleButtonClick}
+        />
+        {this.state.questionType === 'light' ?
+          <Question
+          questionType={this.state.questionType}
+          currentQuestion={this.state.question}
+          /> : <div></div>}
+        <Button
+        name="Dark"
+        value="dark"
+        questionType={this.state.questionType}
+        onButtonClick={this.handleButtonClick}
+        />
+        {this.state.questionType === 'dark' ?
+          <Question
+          questionType={this.state.questionType}
+          currentQuestion={this.state.question}
+          /> : <div></div>}
+        {/* <Button
+        to="/political"
+        name="Political"
+        value="political"
+        questionType={this.state.questionType}
+        onButtonClick={this.handleButtonClick}
+        />*/}
+        {/* <Button
+        name="NSFW"
+        value="nsfw"
+        questionType={this.state.questionType}
+        onButtonClick={this.handleButtonClick}
+        />
+        {this.state.questionType === 'nsfw' ?
+          <Question
+          questionType={this.state.questionType}
+          currentQuestion={this.state.question}
+          /> : <div></div>} */}
     </div>
     );
   }
