@@ -1,86 +1,57 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Button from './Button.jsx';
+import Question from './Question.jsx';
 import request from 'superagent';
-import cookie from 'react-cookie';
-import AdminForm from './admin/adminForm.jsx';
 
-const propTypes = {};
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { questions: [] };
-    this.logIn = this.logIn.bind(this);
-    this.signUp = this.signUp.bind(this);
-    this.signOut = this.signOut.bind(this);
-    this.getAllAdminQuestions = this.getAllAdminQuestions.bind(this);
-  }
-  componentDidMount() {
-    this.updateAuth();
-    if (cookie.load('token')) {
-      this.getAllAdminQuestions();
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      questionType: '',
+      // questionState: '',
     }
-  }
-  getAllAdminQuestions() {
-    request.get('/api/questions')
-           .then((response) => {
-             const questions = response.body;
-             this.setState({ questions });
-           })
-           .catch(() => {
-             this.updateAuth();
-           });
+    this.handleButtonClick = this.handleButtonClick.bind(this);
   }
 
-  signOut() {
-    request.post('/api/signout')
-           .then(() => this.updateAuth());
+  handleButtonClick(e) {
+    const questionState = e.target.value;
+    this.setState({ questionType: e.target.value });
+    this.getQuestion(questionState);
   }
-  updateAuth() {
-    this.setState({
-      token: cookie.load('token'),
-    });
+
+   getQuestion({questionType}) {
+    request.get(`/api/questions/${questionType}`)
+           .then((question) => {
+             return question.body.question;
+            });
+            console.log(question.body.question)
   }
-  logIn(adminDetails) {
-    request.post('/api/login')
-          .send(adminDetails)
-         .then(() => {
-           this.updateAuth();
-           this.getAllAdminQuestions();
-         });
-  }
-  signUp(adminDetails) {
-    console.log(adminDetails);
-    request.post('/api/signup')
-          .send(adminDetails)
-          .then(() => {
-            this.updateAuth();
-            // this.getAllAdminQuestions();
-          });
-  }
+
+
   render() {
-    let adminDisplayElement;
-    if (this.state.token) {
-      adminDisplayElement = (
-        <div>
-          <button onClick={this.signOut} >Log-Out!</button>
-        </div>
-      );
-    } else {
-      adminDisplayElement = (
-        <div>
-          <AdminForm handleSubmit={this.signUp} buttonText="Sign-Up" />
-          <AdminForm handleSubmit={this.logIn} buttonText="Log-In" />
-        </div>
-      );
-    }
     return (
-      <div>
-        {adminDisplayElement}
-      </div>
+      <div id="app-body">
+          <div>
+              <Button
+              name="Light"
+              value="light"
+              questionType={this.state.questionType}
+              onButtonClick={this.handleButtonClick}
+              />
+              {this.state.questionType === 'light' ?
+                <Question
+                getQuestion={this.getQuestion}
+                /> : <div></div>}
+              <Button
+              name="Dark"
+              value="dark"
+              questionType={this.state.questionType}
+              onButtonClick={this.handleButtonClick}
+              />
+        </div>
+    </div>
     );
   }
 }
-
-App.propTypes = propTypes;
 
 export default App;

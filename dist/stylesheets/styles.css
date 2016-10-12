@@ -1,3 +1,20 @@
 body {
   background-color: lightblue;
+  text-align: center;
+}
+
+#app-body {
+  width: 100%;
+  border: 3px solid black;
+}
+
+#title-body {
+  border: 1px soild black;
+}
+#question-body {
+  border: 1px solid black;
+}
+
+.button {
+  padding: 2em;
 }
