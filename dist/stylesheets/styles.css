@@ -1,7 +1,32 @@
 body {
   background-color: lightblue;
   text-align: center;
+  margin: 0;
+  font-family: helvetica, sans-serif;
 }
+
+
+.lightQuestionDiv {
+  background-color:white;
+  color: blue;
+}
+
+.darkQuestionDiv {
+  background-color:black;
+  color: red;
+}
+
+.lightQuestionDiv, .darkQuestionDiv {
+  width: 100%;
+  padding-top: 5em;
+  font-size: 2.5em;
+  position: absolute;
+  height:40em;
+  top:0px;
+  left:0px;
+  z-index: 0;
+}
+
 
 #app-body-light {
   width: 100%;
@@ -23,15 +48,18 @@ button {
   border-radius: 50%;
   padding: 2em;
   background-color: white;
+  position: relative;;
+  z-index: 1;
 }
+
 div.button {
   display: inline-block;
 }
 
-div #question {
+/*div #question {
   width: 75%;
   background-color: white;
   color: black;
   width: 50%;
   margin: 3em auto;
-}
+}*/

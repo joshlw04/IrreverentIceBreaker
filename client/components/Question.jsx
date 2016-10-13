@@ -13,29 +13,28 @@ class Question extends Component {
     const lightStyle = {
       backgroundColor: 'white',
       color: 'blue',
-      width: '80%',
-      margin: '2em auto',
-      padding: '1em',
-      fontSize: '3em'
+      // width: '80%',
+      // margin: '2em auto',
+      // padding: '1em',
+      // fontSize: '3em'
     };
     const darkStyle = {
       backgroundColor: 'black',
       color: 'red',
-      width: '80%',
-      margin: '2em auto',
-      padding: '1em',
-      fontSize: '3em'
-
+      // width: '80%',
+      // margin: '2em auto',
+      // padding: '1em',
+      // fontSize: '3em'
     };
     return (
       <div>
       {this.props.questionType === 'light' ?
-          <div style={lightStyle}>
-            <p>{this.props.currentQuestion}</p>
+          <div className='lightQuestionDiv'>
+            {this.props.currentQuestion}
           </div>
         :
-        <div style={darkStyle}>
-            <p>{this.props.currentQuestion}</p>
+        <div className='darkQuestionDiv'>
+            {this.props.currentQuestion}
         </div>}
     </div>
     );

@@ -46,7 +46,7 @@ class App extends Component {
 
   render() {
     return (
-      <div id="app-body">
+      <div>
         <TypeButton
         name="Light"
         value="light"
