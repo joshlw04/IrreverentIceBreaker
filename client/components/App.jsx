@@ -13,7 +13,6 @@ class App extends Component {
     }
     this.handleTypeButtonClick = this.handleTypeButtonClick.bind(this);
     this.handleNewQuestionClick = this.handleNewQuestionClick.bind(this);
-
   }
 
   handleTypeButtonClick(e) {
@@ -47,35 +46,37 @@ class App extends Component {
   render() {
     return (
       <div>
-        <TypeButton
-        name="Light"
-        value="light"
-        questionType={this.state.questionType}
-        onTypeButtonClick={this.handleTypeButtonClick}
-        />
-        <TypeButton
-        name="Dark"
-        value="dark"
-        questionType={this.state.questionType}
-        onTypeButtonClick={this.handleTypeButtonClick}
-        />
-        {this.state.questionType === 'dark' ?
-          <Question
+        <div>
+          <TypeButton
+          name="Light"
+          value="light"
           questionType={this.state.questionType}
-          currentQuestion={this.state.question}
-          /> : <div></div>}
-        {this.state.questionType === 'light' ?
-          <Question
+          onTypeButtonClick={this.handleTypeButtonClick}
+          />
+          <TypeButton
+          name="Dark"
+          value="dark"
           questionType={this.state.questionType}
-          currentQuestion={this.state.question}
-          /> : <div></div>}
+          onTypeButtonClick={this.handleTypeButtonClick}
+          />
+        </div>
+          {this.state.questionType === 'dark' ?
+            <Question
+            questionType={this.state.questionType}
+            currentQuestion={this.state.question}
+            /> : <div></div>}
+          {this.state.questionType === 'light' ?
+            <Question
+            questionType={this.state.questionType}
+            currentQuestion={this.state.question}
+            /> : <div></div>}
 
-      {this.state.questionType === '' ? <div></div> :
-        <NewQuestionButton
-        name={this.state.questionType}
-        onClick={this.handleNewQuestionClick}
-        />
-      }
+        {this.state.questionType === '' ? <div></div> :
+          <NewQuestionButton
+          name={this.state.questionType}
+          onClick={this.handleNewQuestionClick}
+          />
+        }
     </div>
     );
   }

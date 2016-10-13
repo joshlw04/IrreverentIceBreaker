@@ -29,14 +29,18 @@ class Question extends Component {
     return (
       <div>
       {this.props.questionType === 'light' ?
-          <div className='lightQuestionDiv'>
-            {this.props.currentQuestion}
-          <div className='lightQuestionDivBackground'></div>
-          </div>
+        <div>
+            <div className='lightQuestionDiv'>
+              {this.props.currentQuestion}
+            </div>
+            <div className='lightQuestionDivBackground'></div>
+        </div>
         :
-        <div className='darkQuestionDiv'>
-            {this.props.currentQuestion}
-        <div className='darkQuestionDivBackground'></div>
+        <div>
+          <div className='darkQuestionDiv'>
+              {this.props.currentQuestion}
+          </div>
+          <div className='darkQuestionDivBackground'></div>
         </div>
         }
     </div>
