@@ -1,5 +1,5 @@
 body {
-  background-color: lightblue;
+  background-color: white;
   text-align: center;
   margin: 0;
   font-family: helvetica, sans-serif;
@@ -18,26 +18,13 @@ body {
 
 .lightQuestionDiv, .darkQuestionDiv {
   width: 100%;
-  padding-top: 5em;
+  padding-top: 20%;
   font-size: 2.5em;
   position: absolute;
-  height:40em;
+  height: 100%;
   top:0px;
   left:0px;
   z-index: 0;
-}
-
-
-#app-body-light {
-  width: 100%;
-  border: 3px solid black;
-  background-color: white;
-}
-
-#app-body-dark {
-  width: 100%;
-  border: 3px solid black;
-  background-color: white;
 }
 
 #question-body {
@@ -56,10 +43,8 @@ div.button {
   display: inline-block;
 }
 
-/*div #question {
-  width: 75%;
-  background-color: white;
-  color: black;
-  width: 50%;
-  margin: 3em auto;
-}*/
+.new-question-button {
+  position: fixed;
+  bottom: 1em;
+  margin: 1em auto;
+}

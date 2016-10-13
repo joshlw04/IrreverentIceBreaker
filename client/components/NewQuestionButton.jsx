@@ -23,7 +23,7 @@ class NewQuestionButton extends Component {
       // }
     return (
         <button
-        className="button"
+        className="new-question-button"
         value={this.props.value}
         name={this.props.name}
         onClick={this.props.onClick}
