@@ -1,32 +1,8 @@
-// import React from 'react';
-// import request from 'superagent';
-// import cookie from 'react-cookie';
-// import AdminForm from './admin/adminForm.jsx';
-// console.log('from auth form');
-//
-// class Auth extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = { questions: [] };
-//     this.logIn = this.logIn.bind(this);
-//     this.signUp = this.signUp.bind(this);
-//     this.signOut = this.signOut.bind(this);
-//     this.getAllAdminQuestions = this.getAllAdminQuestions.bind(this);
-//   }
-//
-//   render() {
-//     return (
-//       <div>poop</div>
-//     );
-//   }
-// }
-//   export default Auth;
-
-
-
 import React from 'react';
 import request from 'superagent';
 import cookie from 'react-cookie';
+// import { withRouter } from 'react-router';
+import CMS from './CMS.jsx';
 import AdminForm from './admin/adminForm.jsx';
 console.log('from auth form');
 
@@ -39,25 +15,25 @@ class Auth extends React.Component {
     this.logIn = this.logIn.bind(this);
     this.signUp = this.signUp.bind(this);
     this.signOut = this.signOut.bind(this);
-    this.getAllAdminQuestions = this.getAllAdminQuestions.bind(this);
+    // this.getAllAdminQuestions = this.getAllAdminQuestions.bind(this);
   }
   componentDidMount() {
     this.updateAuth();
     if (cookie.load('token')) {
-      this.getAllAdminQuestions();
+      // this.getAllAdminQuestions();
     }
   }
 
-  getAllAdminQuestions() {
-    request.get('/api/questions')
-           .then((response) => {
-             const questions = response.body;
-             this.setState({ questions });
-           })
-           .catch(() => {
-             this.updateAuth();
-           });
-  }
+  // getAllAdminQuestions() {
+  //   request.get('/api/questions')
+  //          .then((response) => {
+  //            const questions = response.body;
+  //            this.setState({ questions });
+  //          })
+  //          .catch(() => {
+  //            this.updateAuth();
+  //          });
+  // }
 // changed api to auth, also in app.jsx
   signOut() {
     request.post('/auth/signout')
@@ -73,7 +49,7 @@ class Auth extends React.Component {
           .send(adminDetails)
          .then(() => {
            this.updateAuth();
-           this.getAllAdminQuestions();
+           // this.getAllAdminQuestions();
          });
   }
   signUp(adminDetails) {
@@ -90,14 +66,15 @@ class Auth extends React.Component {
     if (this.state.token) {
       adminDisplayElement = (
         <div>
-        <p>testss</p>
+          <p>testss</p>
           <button onClick={this.signOut} >Log-Out!</button>
+          <CMS />
         </div>
       );
     } else {
       adminDisplayElement = (
         <div>
-        <p>testss</p>
+          <p>testss</p>
           <AdminForm handleSubmit={this.signUp} buttonText="Sign-Up" />
           <AdminForm handleSubmit={this.logIn} buttonText="Log-In" />
         </div>

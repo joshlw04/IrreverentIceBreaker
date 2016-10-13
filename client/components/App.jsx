@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router'
+import request from 'superagent';
+
 import TypeButton from './TypeButton.jsx';
 import Question from './Question.jsx';
 import NewQuestionButton from './NewQuestionButton.jsx';
-import request from 'superagent';
+import UserGeneratedContent from './UserGeneratedContent.jsx';
 
 class App extends Component {
   constructor() {
@@ -13,7 +16,6 @@ class App extends Component {
     }
     this.handleTypeButtonClick = this.handleTypeButtonClick.bind(this);
     this.handleNewQuestionClick = this.handleNewQuestionClick.bind(this);
-
   }
 
   handleTypeButtonClick(e) {
@@ -73,36 +75,45 @@ class App extends Component {
 
   render() {
     return (
-      <div id="app-body">
-        <TypeButton
-        name="Light"
-        value="light"
-        questionType={this.state.questionType}
-        onTypeButtonClick={this.handleTypeButtonClick}
-        />
-        <TypeButton
-        name="Dark"
-        value="dark"
-        questionType={this.state.questionType}
-        onTypeButtonClick={this.handleTypeButtonClick}
-        />
-        {this.state.questionType === 'dark' ?
-          <Question
+      <div>
+        <div>
+          <TypeButton
+          name="Light"
+          value="light"
           questionType={this.state.questionType}
-          currentQuestion={this.state.question}
-          /> : <div></div>}
-        {this.state.questionType === 'light' ?
-          <Question
+          onTypeButtonClick={this.handleTypeButtonClick}
+          />
+          <TypeButton
+          name="Dark"
+          value="dark"
           questionType={this.state.questionType}
-          currentQuestion={this.state.question}
-          /> : <div></div>}
+          onTypeButtonClick={this.handleTypeButtonClick}
+          />
+        </div>
+        <div>
+          {this.state.questionType === 'dark' ?
+            <Question
+            questionType={this.state.questionType}
+            currentQuestion={this.state.question}
+            /> : <div></div>}
+          {this.state.questionType === 'light' ?
+            <Question
+            questionType={this.state.questionType}
+            currentQuestion={this.state.question}
+            /> : <div></div>}
 
-      {this.state.questionType === '' ? <div></div> :
-        <NewQuestionButton
-        name={this.state.questionType}
-        onClick={this.handleNewQuestionClick}
-        />
-      }
+        {this.state.questionType === '' ? <div></div> :
+          <NewQuestionButton
+          name={this.state.questionType}
+          onClick={this.handleNewQuestionClick}
+          />
+        }
+      </div>
+      <button>
+      <Link to="/ugc">
+      Create your own question!
+      </Link>
+      </button>
     </div>
     );
   }

@@ -11,9 +11,23 @@ class Question extends Component {
   }
   render() {
     return (
-      <div id="question">
-        <p>{this.props.currentQuestion}</p>
-      </div>
+      <div>
+      {this.props.questionType === 'light' ?
+        <div>
+            <div className='lightQuestionDiv'>
+              {this.props.currentQuestion}
+            </div>
+            <div className='lightQuestionDivBackground'></div>
+        </div>
+        :
+        <div>
+          <div className='darkQuestionDiv'>
+              {this.props.currentQuestion}
+          </div>
+          <div className='darkQuestionDivBackground'></div>
+        </div>
+        }
+    </div>
     );
   }
 }
@@ -23,4 +37,3 @@ Question.propTypes = propTypes;
 export default Question;
 
 // TODO: look into how to pass props into an id for a jsx element
-

@@ -57,24 +57,24 @@ class CMSQuestion extends Component {
     let activeButtons;
     if (this.isSaved()) {
       activeButtons = (
-        <div className="active-buttons">
-          <button onClick={this.handleDeleteClick}>x</button>
-        </div>
+          <button className="delete-button" onClick={this.handleDeleteClick}>x</button>
       );
     }
     return (
-      <div>
+      <div className="cms-question">
       {/* <div className={this.isSaved() ? 'saved' : 'not-saved'} > */}
         <form className="post-display" onSubmit={this.handleSubmit}>
           <input
             type="text"
             name="type"
+            placeholder="type"
             value={this.state.localType}
             onChange={this.handleEditOfType}
           />
           <input
             type="text"
             name="question"
+            placeholder="question"
             value={this.state.localQuestion}
             onChange={this.handleEditOfQuestion}
           />
@@ -83,8 +83,9 @@ class CMSQuestion extends Component {
             value="SAVE"
             className="hidden"
           />
+          {activeButtons}
         </form>
-        {activeButtons}
+
       </div>
     );
   }
