@@ -25,7 +25,7 @@ app.use(morgan('dev'));
 
 // app.use('/api');
 // app.use('/api');
-app.use('/api/admins', adminRouter);
+// app.use('/api/admins', adminRouter);
 //changed api to auth, also in auth.jsx
 app.use('/auth', authentication);
 app.use('/auth', authRouter);

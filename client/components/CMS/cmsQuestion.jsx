@@ -67,12 +67,14 @@ class CMSQuestion extends Component {
           <input
             type="text"
             name="type"
+            placeholder="type"
             value={this.state.localType}
             onChange={this.handleEditOfType}
           />
           <input
             type="text"
             name="question"
+            placeholder="question"
             value={this.state.localQuestion}
             onChange={this.handleEditOfQuestion}
           />
