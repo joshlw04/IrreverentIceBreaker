@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router'
+import request from 'superagent';
+
 import TypeButton from './TypeButton.jsx';
 import Question from './Question.jsx';
 import NewQuestionButton from './NewQuestionButton.jsx';
-import request from 'superagent';
+import UserGeneratedContent from './UserGeneratedContent.jsx';
 
 class App extends Component {
   constructor() {
@@ -10,7 +13,6 @@ class App extends Component {
     this.state = {
       questionType: '',
       question: '',
-      message: 'Choose a mode above!',
     }
     this.handleTypeButtonClick = this.handleTypeButtonClick.bind(this);
     this.handleNewQuestionClick = this.handleNewQuestionClick.bind(this);
@@ -61,6 +63,7 @@ class App extends Component {
           onTypeButtonClick={this.handleTypeButtonClick}
           />
         </div>
+        <div>
           {this.state.questionType === 'dark' ?
             <Question
             questionType={this.state.questionType}
@@ -78,6 +81,12 @@ class App extends Component {
           onClick={this.handleNewQuestionClick}
           />
         }
+      </div>
+      <button>
+      <Link to="/ugc">
+      Create your own question!
+      </Link>
+      </button>
     </div>
     );
   }
