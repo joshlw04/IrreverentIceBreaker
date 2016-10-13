@@ -20,6 +20,7 @@ class App extends Component {
     const questionState = e.target.value;
     this.setState({ questionType: e.target.value });
     this.getQuestion(questionState);
+    this.onClick();
   }
 
   handleNewQuestionClick () {
@@ -32,17 +33,43 @@ class App extends Component {
              this.setState({ question: displayQuestion });
     //          return <Question currentQuestion={this.state.question} />;
              });
+    this.onClick();
   }
 
   getQuestion(questionState) {
     request.get(`/api/questions/${questionState}`)
            .then((question) => {
              const displayQuestion = question.body.question;
-             console.log(displayQuestion);
             //  questionDiv.innerHTML = displayQuestion;
              this.setState({ question: displayQuestion });
            });
+    //  this.onClick();
   }
+
+
+
+
+  emojiBurst(numHearts){
+    let $emojis;
+    const $body = $('body');
+    for (let i = 0; i < numHearts; i++) {
+      let emojiArray = ['😇','😄','☕',]
+      let randomEmoji = emojiArray[Math.floor(Math.random() * emojiArray.length) + 0  ]
+      $emojis = $('<h1>').addClass('heart').html(randomEmoji);
+      $body.append($emojis);
+      $emojis.animate({
+        top: Math.floor(Math.random() * 200) - 50 + '%',
+        left: Math.floor(Math.random() * 200) - 50 + '%',
+        opacity: 0,
+      }, 1500, 'linear');
+    }
+  }
+  onClick(){
+    console.log('clicked')
+    this.emojiBurst(30);
+  }
+
+
 
   render() {
     return (
