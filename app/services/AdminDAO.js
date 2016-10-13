@@ -13,8 +13,10 @@ class AdminDAO {
              .then((row) => new Admin(row));
   }
   static create({ email, password }) {
+    console.log('Checking AdminDAO');
     return db.one(sql.create, [email, password])
-             .then((row) => new Admin(row));
+             .then((row) => new Admin(row))
+             .catch((err) => console.log('error',err));
   }
   static delete(id) {
     return db.none(sql.delete, [id]);

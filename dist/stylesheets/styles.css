@@ -15,7 +15,6 @@ body {
 
 button {
   border-radius: 50%;
-  padding: 2em;
   background-color: white;
 }
 div.button {
@@ -27,4 +26,16 @@ div.button {
   color: black;
   width: 50%;
   margin: 3em auto;
+}
+
+form.post-display {
+    width: 100%;
+}
+
+.delete-button {
+  margin-left: 1%;
+}
+
+li {
+  list-style-type: none;
 }
