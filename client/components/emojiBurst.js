@@ -1,3 +1,8 @@
+
+
+
+
+
 function emojiBurst(numHearts){
   let $emojis;
   const $body = $('body');

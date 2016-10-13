@@ -22,7 +22,7 @@ class App extends Component {
     const questionState = e.target.value;
     this.setState({ questionType: e.target.value });
     this.getQuestion(questionState);
-    this.onClick();
+    this.emojiBurst(30, questionState);
   }
 
   handleNewQuestionClick () {
@@ -35,7 +35,7 @@ class App extends Component {
              this.setState({ question: displayQuestion });
     //          return <Question currentQuestion={this.state.question} />;
              });
-    this.onClick();
+   this.emojiBurst(30, questionState);
   }
 
   getQuestion(questionState) {
@@ -45,17 +45,25 @@ class App extends Component {
             //  questionDiv.innerHTML = displayQuestion;
              this.setState({ question: displayQuestion });
            });
-    //  this.onClick();
   }
 
-
-
-
-  emojiBurst(numHearts){
+  emojiBurst(numHearts, currentState){
     let $emojis;
     const $body = $('body');
-    for (let i = 0; i < numHearts; i++) {
-      let emojiArray = ['😇','😄','☕',]
+    let emojiArray = [];
+
+      if (currentState == 'light') {
+        emojiArray.push('😇','😄','☕',)
+        console.log('light array');
+        console.log(emojiArray)
+      }
+      else if (currentState == 'dark') {
+        emojiArray.push('☕')
+        console.log('dark array');
+        console.log(emojiArray)
+      }
+
+      for (let i = 0; i < numHearts; i++) {
       let randomEmoji = emojiArray[Math.floor(Math.random() * emojiArray.length) + 0  ]
       $emojis = $('<h1>').addClass('heart').html(randomEmoji);
       $body.append($emojis);
@@ -66,12 +74,6 @@ class App extends Component {
       }, 1500, 'linear');
     }
   }
-  onClick(){
-    console.log('clicked')
-    this.emojiBurst(30);
-  }
-
-
 
   render() {
     return (
