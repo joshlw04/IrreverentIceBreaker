@@ -14,5 +14,6 @@ CREATE TABLE admins (
 CREATE TABLE questions (
   id SERIAL PRIMARY KEY,
   question VARCHAR(60) NOT NULL,
-  type VARCHAR(60) NOT NULL
+  type VARCHAR(60) NOT NULL,
+  admin_email VARCHAR NOT NULL
 );

@@ -24,6 +24,7 @@ class CMS extends Component {
     request.get('/api/questions')
            .then((response) => {
               let questionData = response.body;
+              console.log(questionData);
               let questions = [];
               if(questionData) {
                 questions = Object.keys(questionData).map((id) => {
@@ -33,7 +34,7 @@ class CMS extends Component {
                     id: indvQuestionData.id,
                     question: indvQuestionData.question,
                     type: indvQuestionData.type,
-                    email: indvQuestionData.admin_email,
+                    admin_email: indvQuestionData.admin_email,
                   };
                 });
               }
@@ -41,11 +42,11 @@ class CMS extends Component {
            });
   }
 
-  handlePublish({ id, type, question }) {
+  handlePublish({ id, type, question, admin_email }) {
     if (id) {
-      this.httpUpdateQuestion({ id, type, question });
+      this.httpUpdateQuestion({ id, type, question, admin_email });
     } else {
-      this.httpPublishQuestion({ type, question });
+      this.httpPublishQuestion({ type, question, admin_email });
     }
   }
   httpDeleteQuestion(id) {
@@ -57,20 +58,20 @@ class CMS extends Component {
              this.getQuestions();
            });
   }
-  httpUpdateQuestion({ id, type, question }) {
+  httpUpdateQuestion({ id, type, question, admin_email }) {
     // const url = `https://meerkats-e16d1.firebaseio.com/posts/${id}.json`;
     // request.patch(url)
     request.put(`/api/questions/${id}`)
-           .send({ type, question })
+           .send({ type, question, admin_email })
            .then(() => {
              this.getQuestions();
            });
   }
-  httpPublishQuestion({ type, question }) {
+  httpPublishQuestion({ type, question, admin_email }) {
     // const url = 'https://meerkats-e16d1.firebaseio.com/posts.json';
     // request.post(url)
     request.post('/api/questions')
-           .send({ type, question })
+           .send({ type, question, admin_email })
            .then(() => {
              this.getQuestions();
            });

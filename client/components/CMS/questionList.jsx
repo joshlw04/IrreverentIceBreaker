@@ -5,6 +5,7 @@ const propTypes = {
   handleDelete: React.PropTypes.func,
   handlePublish: React.PropTypes.func,
   questions: React.PropTypes.array,
+
 };
 
 // handleDelete={this.httpDeleteQuestion} handlePublish={this.handlePublish} questions={this.state.questions}
@@ -22,6 +23,7 @@ class QuestionList extends Component {
             type={individualQuestion.type}
             question={individualQuestion.question}
             id={individualQuestion.id}
+            admin_email={individualQuestion.admin_email}
            />
         </li>
       );

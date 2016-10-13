@@ -4,6 +4,7 @@ const propTypes = {
   id: React.PropTypes.number,
   question: React.PropTypes.string,
   type: React.PropTypes.string,
+  admin_email: React.PropTypes.string,
 };
 
 class CMSQuestion extends Component {
@@ -12,9 +13,11 @@ class CMSQuestion extends Component {
     this.state = {
       localType: this.props.type || '',
       localQuestion: this.props.question || '',
+      localAdminEmail: this.props.admin_email || '',
     };
     this.handleEditOfType = this.handleEditOfType.bind(this);
     this.handleEditOfQuestion = this.handleEditOfQuestion.bind(this);
+    this.handleEditOfEmail = this.handleEditOfEmail.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
     this.isSaved = this.isSaved.bind(this);
@@ -23,6 +26,7 @@ class CMSQuestion extends Component {
     this.setState({
       localType: nextProps.type || '',
       localQuestion: nextProps.question || '',
+      localAdminEmail: nextProps.localAdminEmail || '',
     });
   }
   handleEditOfType(e) {
@@ -37,12 +41,21 @@ class CMSQuestion extends Component {
       localQuestion: newQuestion,
     });
   }
+
+  handleEditOfEmail(e) {
+    const newAdminEmail = e.target.value;
+    this.setState({
+      localAdminEmail: newAdminEmail,
+    });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.handlePublish({
       id: this.props.id,
       type: this.state.localType,
       question: this.state.localQuestion,
+      admin_email: this.state.localAdminEmail,
     });
     this.setState({ saved: true });
   }
@@ -78,6 +91,14 @@ class CMSQuestion extends Component {
             value={this.state.localQuestion}
             onChange={this.handleEditOfQuestion}
           />
+          <input
+            type="text"
+            name="email"
+            placeholder="admin_email"
+            value={this.state.localAdminEmail}
+            onChange={this.handleEditOfEmail}
+          />
+
           <input
             type="submit"
             value="SAVE"

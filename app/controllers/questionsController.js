@@ -18,6 +18,7 @@ class QuestionsController {
       type: req.body.type,
       admin_email: req.body.admin_email,
     };
+    console.log(questionData);
     QuestionDAO.create(questionData)
                .then((question) => res.status(200).json(question));
   }
