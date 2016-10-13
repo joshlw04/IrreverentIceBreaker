@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       questionType: '',
       question: '',
+      message: 'Choose a mode above!',
     }
     this.handleTypeButtonClick = this.handleTypeButtonClick.bind(this);
     this.handleNewQuestionClick = this.handleNewQuestionClick.bind(this);
