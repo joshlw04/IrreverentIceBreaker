@@ -61,7 +61,7 @@ class CMSQuestion extends Component {
       );
     }
     return (
-      <div className="question">
+      <div className="cms-question">
       {/* <div className={this.isSaved() ? 'saved' : 'not-saved'} > */}
         <form className="post-display" onSubmit={this.handleSubmit}>
           <input
