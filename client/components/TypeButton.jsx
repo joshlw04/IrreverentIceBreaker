@@ -13,12 +13,11 @@ class Button extends Component {
   }
   render() {
     return (
-      <div className="button">
         <button
+        className="button"
         value={this.props.value} // assigning HTML button properties thru props. it works! haha
         name={this.props.name}
         onClick={this.props.onTypeButtonClick}>{this.props.name + " mode"}</button>
-      </div>
     );
   }
 }

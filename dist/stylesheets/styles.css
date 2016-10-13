@@ -3,10 +3,16 @@ body {
   text-align: center;
 }
 
-#app-body {
+#app-body-light {
   width: 100%;
   border: 3px solid black;
-  display: inline-block;
+  background-color: white;
+}
+
+#app-body-dark {
+  width: 100%;
+  border: 3px solid black;
+  background-color: white;
 }
 
 #question-body {
@@ -22,7 +28,8 @@ div.button {
   display: inline-block;
 }
 
-#question p {
+div #question {
+  width: 75%;
   background-color: white;
   color: black;
   width: 50%;

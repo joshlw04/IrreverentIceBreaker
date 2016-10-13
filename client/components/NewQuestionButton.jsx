@@ -22,13 +22,13 @@ class NewQuestionButton extends Component {
       //   buttonName = `Choose another ${this.props.name} question`;
       // }
     return (
-      <div className="button">
         <button
+        className="button"
         value={this.props.value}
         name={this.props.name}
         onClick={this.props.onClick}
-        >{"Choose another " + this.props.name + " question" }</button>
-      </div>
+        >{"Choose another " + this.props.name + " question" }
+        </button>
     );
   }
 }
