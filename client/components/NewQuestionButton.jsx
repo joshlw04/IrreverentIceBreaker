@@ -14,21 +14,16 @@ class NewQuestionButton extends Component {
   }
 
   render() {
-      // let buttonName = "";
-      // if (this.props.questionType == "") {
-      //   // buttonName = "Choose a Question Type from Above"
-      //   console.log(this.props.questionType);
-      // } else {
-      //   buttonName = `Choose another ${this.props.name} question`;
-      // }
     return (
+      <div>
         <button
-        className="new-question-button"
-        value={this.props.value}
-        name={this.props.name}
-        onClick={this.props.onClick}
-        >{"Choose another " + this.props.name + " question" }
+          className="new-question-button"
+          value={this.props.value}
+          name={this.props.name}
+          onClick={this.props.onClick}
+          >{"Choose another " + this.props.name + " question" }
         </button>
+      </div>
     );
   }
 }

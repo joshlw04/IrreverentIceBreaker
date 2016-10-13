@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router'
 import request from 'superagent';
-
 import TypeButton from './TypeButton.jsx';
 import Question from './Question.jsx';
 import NewQuestionButton from './NewQuestionButton.jsx';
@@ -27,13 +26,10 @@ class App extends Component {
 
   handleNewQuestionClick () {
     const questionState = this.state.questionType;
-    // console.log(questionState);
     request.get(`/api/questions/${questionState}`)
            .then((question) => {
              const displayQuestion = question.body.question;
-            //  console.log(question.body.question);
              this.setState({ question: displayQuestion });
-    //          return <Question currentQuestion={this.state.question} />;
              });
    this.emojiBurst(30, questionState);
   }
@@ -42,7 +38,6 @@ class App extends Component {
     request.get(`/api/questions/${questionState}`)
            .then((question) => {
              const displayQuestion = question.body.question;
-            //  questionDiv.innerHTML = displayQuestion;
              this.setState({ question: displayQuestion });
            });
   }
@@ -51,26 +46,20 @@ class App extends Component {
     let $emojis;
     const $body = $('body');
     let emojiArray = [];
-
-      if (currentState == 'light') {
-        emojiArray.push('😇','😄','☕','🍔','⚽','🐻','🍕','🍦','💅','🍔','⚽','🐻',)
-        console.log('light array');
-        console.log(emojiArray)
-      }
-      else if (currentState == 'dark') {
-        emojiArray.push('👄','🍆','🔫','💰','💶','💀','👻','😲','🍺','🍻','🍷','😛','😈','🙊','🙉','🙈')
-        console.log('dark array');
-        console.log(emojiArray)
-      }
-
-      for (let i = 0; i < numHearts; i++) {
-      let randomEmoji = emojiArray[Math.floor(Math.random() * emojiArray.length) + 0  ]
-      $emojis = $('<h1>').addClass('emojis').html(randomEmoji);
-      $body.append($emojis);
-      $emojis.animate({
-        top: Math.floor(Math.random() * 200) - 50 + '%',
-        left: Math.floor(Math.random() * 200) - 50 + '%',
-        opacity: 0,
+    if (currentState == 'light') {
+      emojiArray.push('😇','😄','☕','🍔','⚽','🐻','🍕','🍦','💅','🍔','⚽','🐻',)
+    }
+    else if (currentState == 'dark') {
+      emojiArray.push('👄','🍆','🔫','💰','💶','💀','👻','😲','🍺','🍻','🍷','😛','😈','🙊','🙉','🙈')
+    }
+    for (let i = 0; i < numHearts; i++) {
+    let randomEmoji = emojiArray[Math.floor(Math.random() * emojiArray.length) + 0  ]
+    $emojis = $('<h1>').addClass('emojis').html(randomEmoji);
+    $body.append($emojis);
+    $emojis.animate({
+      top: Math.floor(Math.random() * 200) - 50 + '%',
+      left: Math.floor(Math.random() * 200) - 50 + '%',
+      opacity: 0,
       }, 1500, 'linear');
     }
   }
@@ -78,15 +67,15 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div>
+        <div className="modeButtonHolder">
           <TypeButton
-          name="Light"
+          name="😇 Light"
           value="light"
           questionType={this.state.questionType}
           onTypeButtonClick={this.handleTypeButtonClick}
           />
           <TypeButton
-          name="Dark"
+          name="😈 Dark"
           value="dark"
           questionType={this.state.questionType}
           onTypeButtonClick={this.handleTypeButtonClick}
@@ -103,20 +92,33 @@ class App extends Component {
             questionType={this.state.questionType}
             currentQuestion={this.state.question}
             /> : <div></div>}
-
-        {this.state.questionType === '' ? <div></div> :
-          <NewQuestionButton
-          name={this.state.questionType}
-          onClick={this.handleNewQuestionClick}
-          />
-        }
+          {
+          this.state.questionType === '' ? <div></div> :
+          <div className="new-question-button-holder">
+            <NewQuestionButton
+            name={this.state.questionType}
+            onClick={this.handleNewQuestionClick}
+            />
+          </div>}
+        </div>
+        <div className='UGCButtonContainer'>
+          <button>
+          <Link to="/ugc">
+          Create your own question!
+          </Link>
+          </button>
+        </div>
+        <div className='AdminButtonContainer'>
+          <button>
+          <Link to="/admin">
+          Admin Login
+          </Link>
+          </button>
+        </div>
+        <div className='SSSContainer'>
+          {/* <p>SSS</p> */}
+        </div>
       </div>
-      <button>
-      <Link to="/ugc">
-      Create your own question!
-      </Link>
-      </button>
-    </div>
     );
   }
 }

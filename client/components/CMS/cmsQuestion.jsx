@@ -71,7 +71,7 @@ class CMSQuestion extends Component {
             value={this.state.localType}
             onChange={this.handleEditOfType}
           />
-          <input
+          <input className="question"
             type="text"
             name="question"
             placeholder="question"

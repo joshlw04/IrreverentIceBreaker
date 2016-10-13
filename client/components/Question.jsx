@@ -20,17 +20,30 @@ class Question extends Component {
             <div className='lightQuestionDivBackground'></div>
         </div>
         :
+        this.props.questionType === 'dark' ?
         <div>
           <div className='darkQuestionDiv'>
               {this.props.currentQuestion}
           </div>
           <div className='darkQuestionDivBackground'></div>
         </div>
+        :
+        <div>
+          <div></div>
+        </div>
         }
     </div>
     );
   }
 }
+
+
+
+
+
+
+
+
 
 Question.propTypes = propTypes;
 
