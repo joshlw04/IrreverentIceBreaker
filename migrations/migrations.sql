@@ -7,7 +7,7 @@ CREATE DATABASE irreverent_ice_breaker;
 
 CREATE TABLE admins (
   id SERIAL PRIMARY KEY,
-  email VARCHAR NOT NULL,
+  email VARCHAR NOT NULL UNIQUE,
   password VARCHAR NOT NULL
 );
 

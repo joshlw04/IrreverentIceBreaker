@@ -33,6 +33,7 @@ class CMS extends Component {
                     id: indvQuestionData.id,
                     question: indvQuestionData.question,
                     type: indvQuestionData.type,
+                    email: indvQuestionData.admin_email,
                   };
                 });
               }

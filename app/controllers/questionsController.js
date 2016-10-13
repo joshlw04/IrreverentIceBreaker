@@ -16,6 +16,7 @@ class QuestionsController {
     const questionData = {
       question: req.body.question,
       type: req.body.type,
+      admin_email: req.body.admin_email,
     };
     QuestionDAO.create(questionData)
                .then((question) => res.status(200).json(question));
@@ -25,6 +26,7 @@ class QuestionsController {
       id: req.params.id,
       question: req.body.question,
       type: req.body.type,
+      admin_email: req.body.admin_email,
     };
     console.log(updateData);
     QuestionDAO.update(updateData)

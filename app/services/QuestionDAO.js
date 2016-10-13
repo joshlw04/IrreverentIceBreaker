@@ -13,12 +13,12 @@ class QuestionDAO {
   static delete(id) {
     return db.none(sql.delete, [id]);
   }
-  static create({ question, type }) {
-    return db.one(sql.create, [question, type])
+  static create({ question, type, admin_email }) {
+    return db.one(sql.create, [question, type, admin_email])
              .then((data) => new Question(data));
   }
-  static update({ id, question, type }) {
-    return db.none(sql.update, [question, type, id]);
+  static update({ id, question, type, admin_email }) {
+    return db.none(sql.update, [question, type, admin_email, id]);
   }
 }
 
