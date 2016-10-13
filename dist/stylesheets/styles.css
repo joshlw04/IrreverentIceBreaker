@@ -2,19 +2,22 @@ body {
   background-color: white;
   text-align: center;
   margin: 0;
-  font-family: helvetica, sans-serif;
+  font-family: "HelveticaNeue-Light";
+  font-weight: 300;
 }
 
 .lightQuestionDiv {
   position: absolute;
   color: cornflowerblue;
   z-index: 1;
+  text-shadow: .3px .3px .3px black ;
 }
 
 .darkQuestionDiv {
   position: absolute;
   color: red;
   z-index: 1;
+  text-shadow: .3px .3px .3px black ;
 }
 
 .lightQuestionDivBackground {
@@ -46,37 +49,28 @@ body {
 
 button {
   /*border-radius: 50%;*/
-  background-color: white;
-  position: relative;;
+  /*background-color: white;*/
+  position: relative;
   z-index: 1;
-  :none
+  /*:none*/
 }
 
 div.button {
   display: inline-block;
-  /*position: absolute;*/
   z-index: 1;
 }
 
-.heart {
-  color: red;
+.emojis {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   font-size: 3em;
   border-radius: 50%;
   z-index: 0;
-/*.new-question-button {*/
-  /*position: absolute;*/
-  /*bottom: 1em;*/
-  /*margin: 1em auto;*/
-  /*position: relative;;*/
-  /*z-index: 1;*/
-/*}*/
 
-form.post-display {
+/*form.post-display {
     width: 100%;
-}
+}*/
 
 .delete-button {
   margin-left: 1%;

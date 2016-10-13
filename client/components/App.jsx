@@ -53,19 +53,19 @@ class App extends Component {
     let emojiArray = [];
 
       if (currentState == 'light') {
-        emojiArray.push('😇','😄','☕',)
+        emojiArray.push('😇','😄','☕','🍔','⚽','🐻','🍕','🍦','💅','🍔','⚽','🐻',)
         console.log('light array');
         console.log(emojiArray)
       }
       else if (currentState == 'dark') {
-        emojiArray.push('☕')
+        emojiArray.push('👄','🍆','🔫','💰','💶','💀','👻','😲','🍺','🍻','🍷','😛','😈','🙊','🙉','🙈')
         console.log('dark array');
         console.log(emojiArray)
       }
 
       for (let i = 0; i < numHearts; i++) {
       let randomEmoji = emojiArray[Math.floor(Math.random() * emojiArray.length) + 0  ]
-      $emojis = $('<h1>').addClass('heart').html(randomEmoji);
+      $emojis = $('<h1>').addClass('emojis').html(randomEmoji);
       $body.append($emojis);
       $emojis.animate({
         top: Math.floor(Math.random() * 200) - 50 + '%',
