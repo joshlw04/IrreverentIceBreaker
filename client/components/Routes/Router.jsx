@@ -11,7 +11,6 @@ const Routes = () => {
     <Router history={browserHistory}>
       <Route path="/" component={App} />
       <Route path="/admin" component={Auth} />
-      <Route path="/cms" component={CMS} />
     </Router>
   );
 }
