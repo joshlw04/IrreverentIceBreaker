@@ -27,6 +27,19 @@ body {
   background-color: black;
 }
 
+.introText {
+  width: 100%;
+  font-size: 5vw;
+  position: absolute;
+  height: auto;
+  top:41%;
+  left:0px;
+  z-index: 0;
+  text-align: center;
+    /*text-shadow: .3px .3px .3px black ;*/
+}
+
+
 .lightQuestionDiv, .darkQuestionDiv {
   width: 100%;
   font-size: 5vw;

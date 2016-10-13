@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router'
 import request from 'superagent';
 import cookie from 'react-cookie';
 import CMS from './CMS.jsx';
@@ -44,13 +45,12 @@ class Auth extends React.Component {
             this.updateAuth();
           });
   }
-
   render() {
     let adminDisplayElement;
     if (this.state.token) {
       adminDisplayElement = (
         <div className="adminForm">
-          <p>Admin authorization</p>
+          <p className="UGCGreetingSub">Welcome SSS™ Admin!</p>
           <button onClick={this.signOut} >Log-Out!</button>
           <CMS />
         </div>
@@ -67,6 +67,14 @@ class Auth extends React.Component {
     return (
       <div>
         {adminDisplayElement}
+
+        <div className='AdminButtonContainer'>
+          <button>
+          <Link to="/">
+            Back Home
+          </Link>
+          </button>
+        </div>
       </div>
     );
   }

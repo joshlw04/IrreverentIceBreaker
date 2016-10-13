@@ -81,6 +81,7 @@ class App extends Component {
           onTypeButtonClick={this.handleTypeButtonClick}
           />
         </div>
+        <p className="introText">Choose question mode above!</p>
         <div>
           {this.state.questionType === 'dark' ?
             <Question
