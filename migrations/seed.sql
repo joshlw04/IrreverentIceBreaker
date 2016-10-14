@@ -3,28 +3,39 @@ TRUNCATE TABLE QUESTIONS;
 
 INSERT INTO admins (email, password) VALUES ('liz@test.com', 'password');
 
-INSERT INTO questions (question, type) VALUES ('(dark) What did you have for dinner?', 'dark');
-INSERT INTO questions (question, type) VALUES ('(dark) Who are you voting for?', 'dark');
-INSERT INTO questions (question, type) VALUES ('(dark) Where did you grow up?', 'dark');
-
-INSERT INTO questions (question, type) VALUES ('(light) Where did you last travel?', 'light');
-INSERT INTO questions (question, type) VALUES ('(light) What is your favorite color?', 'light');
-INSERT INTO questions (question, type) VALUES ('(light) How many siblings do you have?', 'light');
-
-INSERT INTO questions (question, type) VALUES ('(light) How many cats do you have?', 'light');
-INSERT INTO questions (question, type) VALUES ('(light) What is your favorite breed of dog?', 'light');
-INSERT INTO questions (question, type) VALUES ('(light) What is your best memory?', 'light');
-INSERT INTO questions (question, type) VALUES ('(light) What is your least favorite toilet?', 'light');
-
-INSERT INTO questions (question, type) VALUES ('(dark) Where did you go to school?', 'dark');
-INSERT INTO questions (question, type) VALUES ('(dark) What do you love to eat most?', 'dark');
-INSERT INTO questions (question, type) VALUES ('(dark) Have you ever paid for sex?', 'dark');
-INSERT INTO questions (question, type) VALUES ('(dark) Would you kill someone for $1,000?', 'dark');
-INSERT INTO questions (question, type) VALUES ('(dark) Who would you want to be stranded with?', 'dark');
-
-INSERT INTO questions (question, type) VALUES ('(nsfw) How many sexual partners have you had?', 'nsfw');
-INSERT INTO questions (question, type) VALUES ('(nsfw) When was the last time you did a body shot?', 'nsfw');
-INSERT INTO questions (question, type) VALUES ('(nsfw) What is your favorite sexual position?', 'nsfw');
-INSERT INTO questions (question, type) VALUES ('(nsfw) What is the longest time you have gone without sex?', 'nsfw');
-INSERT INTO questions (question, type) VALUES ('(nsfw) Have you ever had a sexual encounter outside?', 'nsfw');
-INSERT INTO questions (question, type) VALUES ('(nsfw) Have you ever been caught having sex?', 'nsfw');
+INSERT INTO questions (question, type) VALUES ('What did you have for dinner?', 'light');
+INSERT INTO questions (question, type) VALUES ('Where did you grow up?', 'light');
+INSERT INTO questions (question, type) VALUES ('Where did you last travel?', 'light');
+INSERT INTO questions (question, type) VALUES ('What is your favorite color?', 'light');
+INSERT INTO questions (question, type) VALUES ('How many siblings do you have?', 'light');
+INSERT INTO questions (question, type) VALUES ('How many cats do you have?', 'light');
+INSERT INTO questions (question, type) VALUES ('What is your favorite breed of dog?', 'light');
+INSERT INTO questions (question, type) VALUES ('What is your best memory?', 'light');
+INSERT INTO questions (question, type) VALUES ('Where did you go to school?', 'light');
+INSERT INTO questions (question, type) VALUES ('If you could master one instrument what would it be?', 'light');
+INSERT INTO questions (question, type) VALUES ('What is your guilty pleasure?', 'light');
+INSERT INTO questions (question, type) VALUES ('Which person from history would you most like to meet?', 'light');
+INSERT INTO questions (question, type) VALUES ('What is your favorite film?', 'light');
+INSERT INTO questions (question, type) VALUES ('Have you gone out with mismatched socks or shoes on?', 'light');
+INSERT INTO questions (question, type) VALUES ('Have you ever seen a ghost or an alien?', 'light');
+INSERT INTO questions (question, type) VALUES ('Where would you like to be in five years time?', 'light');
+INSERT INTO questions (question, type) VALUES ('Which would you prefer — three wishes over five years or one wish right now?', 'light');
+INSERT INTO questions (question, type) VALUES ('When did you last sing to yourself? To someone else?', 'light');
+INSERT INTO questions (question, type) VALUES ('If you could have an endless supply of food, what would you get?', 'light');
+INSERT INTO questions (question, type) VALUES ('As a child, what did you wish to be when you grew up?', 'light');
+INSERT INTO questions (question, type) VALUES ('How do you like to spend a rainy day?', 'light');
+INSERT INTO questions (question, type) VALUES ('What will you be like when you are 75?', 'light');
+INSERT INTO questions (question, type) VALUES ('You’re writing a message in a bottle. What’s the first line?', 'light');
+INSERT INTO questions (question, type) VALUES ('Which celebrity deserves their own monument?', 'light');
+INSERT INTO questions (question, type) VALUES ('What did you most hate sharing as a kid?', 'light');
+INSERT INTO questions (question, type) VALUES ('What is one of the things on your bucket list?', 'light');
+INSERT INTO questions (question, type) VALUES ('What color is your toothbrush?', 'light');
+INSERT INTO questions (question, type) VALUES ('Are you a morning or a night person?', 'light');
+INSERT INTO questions (question, type) VALUES ('What was the last thing you geeked out about? Where were you?', 'light');
+INSERT INTO questions (question, type) VALUES ('If you could be an ambassador, which country would you choose?', 'light');
+INSERT INTO questions (question, type) VALUES ('Which mystery would you like the truth about?', 'light');
+INSERT INTO questions (question, type) VALUES ('What is the funniest YouTube video you have seen?', 'light');
+INSERT INTO questions (question, type) VALUES ('Who is one of your heroes and why do they inspire you?', 'light');
+INSERT INTO questions (question, type) VALUES ('What is your favorite amusement park ride?', 'light');
+INSERT INTO questions (question, type) VALUES ('What is the scariest movie you have seen?', 'light');
+INSERT INTO questions (question, type) VALUES ('What is the scariest movie you have seen?', 'light');
