@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router'
 import request from 'superagent';
 import cookie from 'react-cookie';
-// import { withRouter } from 'react-router';
 import CMS from './CMS.jsx';
 import AdminForm from './admin/adminForm.jsx';
 console.log('from auth form');
@@ -15,26 +15,12 @@ class Auth extends React.Component {
     this.logIn = this.logIn.bind(this);
     this.signUp = this.signUp.bind(this);
     this.signOut = this.signOut.bind(this);
-    // this.getAllAdminQuestions = this.getAllAdminQuestions.bind(this);
   }
   componentDidMount() {
     this.updateAuth();
     if (cookie.load('token')) {
-      // this.getAllAdminQuestions();
     }
   }
-
-  // getAllAdminQuestions() {
-  //   request.get('/api/questions')
-  //          .then((response) => {
-  //            const questions = response.body;
-  //            this.setState({ questions });
-  //          })
-  //          .catch(() => {
-  //            this.updateAuth();
-  //          });
-  // }
-// changed api to auth, also in app.jsx
   signOut() {
     request.post('/auth/signout')
            .then(() => this.updateAuth());
@@ -49,7 +35,6 @@ class Auth extends React.Component {
           .send(adminDetails)
          .then(() => {
            this.updateAuth();
-           // this.getAllAdminQuestions();
          });
   }
   signUp(adminDetails) {
@@ -58,23 +43,22 @@ class Auth extends React.Component {
           .send(adminDetails)
           .then(() => {
             this.updateAuth();
-            // this.getAllAdminQuestions();
           });
   }
   render() {
     let adminDisplayElement;
     if (this.state.token) {
       adminDisplayElement = (
-        <div>
-          <p>testss</p>
+        <div className="adminForm">
+          <p className="UGCGreetingSub">Welcome SSS™ Admin!</p>
           <button onClick={this.signOut} >Log-Out!</button>
           <CMS />
         </div>
       );
     } else {
       adminDisplayElement = (
-        <div>
-          <p>testss</p>
+        <div className="adminForm">
+          <p>Admin authorization</p>
           <AdminForm handleSubmit={this.signUp} buttonText="Sign-Up" />
           <AdminForm handleSubmit={this.logIn} buttonText="Log-In" />
         </div>
@@ -83,6 +67,14 @@ class Auth extends React.Component {
     return (
       <div>
         {adminDisplayElement}
+
+        <div className='AdminButtonContainer'>
+          <button>
+          <Link to="/">
+            Back Home
+          </Link>
+          </button>
+        </div>
       </div>
     );
   }

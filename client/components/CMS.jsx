@@ -78,7 +78,6 @@ class CMS extends Component {
   render() {
     return (
       <div>
-        test
         <QuestionList handleDelete={this.httpDeleteQuestion} handlePublish={this.handlePublish} questions={this.state.questions} />
         <CMSQuestion handleDelete={this.httpDeleteQuestion} handlePublish={this.handlePublish} />
       </div>
