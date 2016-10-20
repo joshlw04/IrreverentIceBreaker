@@ -57,8 +57,6 @@ class CMS extends Component {
            });
   }
   httpUpdateQuestion({ id, type, question }) {
-    // const url = `https://meerkats-e16d1.firebaseio.com/posts/${id}.json`;
-    // request.patch(url)
     request.put(`/api/questions/${id}`)
            .send({ type, question })
            .then(() => {

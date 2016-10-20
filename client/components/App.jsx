@@ -125,26 +125,3 @@ class App extends Component {
 }
 
 export default App;
-
-/*
-
-{/* <Button
-to="/political"
-name="Political"
-value="political"
-questionType={this.state.questionType}
-onButtonClick={this.handleButtonClick}
-/>
- <Button
-name="NSFW"
-value="nsfw"
-questionType={this.state.questionType}
-onButtonClick={this.handleButtonClick}
-/>
-{this.state.questionType === 'nsfw' ?
-  <Question
-  questionType={this.state.questionType}
-  currentQuestion={this.state.question}
-  /> : <div></div>}
-
-*/

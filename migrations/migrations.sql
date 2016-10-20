@@ -13,6 +13,6 @@ CREATE TABLE admins (
 
 CREATE TABLE questions (
   id SERIAL PRIMARY KEY,
-  question VARCHAR(60) NOT NULL,
+  question TEXT NOT NULL,
   type VARCHAR(60) NOT NULL
 );
